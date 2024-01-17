@@ -1,14 +1,15 @@
 {% extends 'base.html' %} 
-
+{% load static %}
 {% load humanize %}
 
 {% block content %}
+<div class="contact-nav" style=" background: linear-gradient(rgba(91, 5, 212, 0.976), rgba(63, 8, 134, 0.96));">
 
-<div Style="width:50%;margin:auto">
-  <h1 class="text-center font-weight-bold pb-4">Jobs Applied</h1>
-  <hr />
-  </div>
-  <div Style="width:50%;margin:auto">
+  <img src="{% static 'images/close-up-young-business-team-working.jpg' %}" alt="" style="width: 100%;position: relative;opacity: 0.3;height:40vh;object-fit:cover">
+  <h1 style="position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%); color: white;" class="fw-bolder"><strong>Job Applied</strong></h1>
+</div>
+
+  <div Style="width:50%;margin:auto;margin-top:20px;margin-bottom:20px">
   <form method="get" action="{% url 'joblist' %}">
     <div class="row justify-content-center">
       <div class="col-md-4 mb-3">
