@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404,redirect
+from django.shortcuts import render,get_object_or_404,redirect,HttpResponseRedirect
 from django.views.generic import DetailView,CreateView,ListView,View,FormView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
@@ -12,6 +12,17 @@ from jobs.forms import JobSearch
 from django.core.mail import EmailMessage, EmailMultiAlternatives
 from django.template.loader import render_to_string
 # Create your views here.
+
+
+def send_transaction_email(email, subject, template):
+        message = render_to_string(template, {
+            
+            
+        })
+        send_email = EmailMultiAlternatives(subject, '', to=[email])
+  
+        send_email.attach_alternative(message, "text/html")
+        send_email.send()
 
 class HomeView(TemplateView):
     template_name = 'base.html'
@@ -51,3 +62,11 @@ class Contact_us(FormView):
         form.save()
         return super().form_valid(form)
     
+
+def subsribe(request):
+    if request.method == 'POST':
+        email = request.POST.get('newsletter-email')
+        send_transaction_email(email, "New Subsribtion", "subsribe_mail.html")
+        return HttpResponseRedirect(reverse_lazy('home'))
+    else:
+        return HttpResponseRedirect(reverse_lazy('home'))
