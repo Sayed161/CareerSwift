@@ -6,11 +6,11 @@ from datetime import datetime
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView
 from jobs.models import Jobs
-from employee.models import Employee
-from location.models import Location
 from category.models import Category
 from contact_us.forms import Contactform
 from jobs.forms import JobSearch
+from django.core.mail import EmailMessage, EmailMultiAlternatives
+from django.template.loader import render_to_string
 # Create your views here.
 
 class HomeView(TemplateView):
@@ -37,6 +37,7 @@ class Details(DetailView):
         context['jobs']=jobs
         return context
     
+
 class Contact_us(FormView):
     template_name = "contact.html"
     form_class = Contactform

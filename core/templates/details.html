@@ -8,7 +8,7 @@
     <h1 style="position: absolute; top: 20%; left: 50%; transform: translate(-50%, -50%); color: white;" class="fw-bolder"><strong>Job Details</strong></h1>
 </div>
 <div class="col-12 d-flex" style="margin:auto;width:50%">
-    <div class="card m-5" style="height:100vh;">
+    <div class="card m-5" style="">
 
     
             <div class="col-md-12">
@@ -17,7 +17,7 @@
                     <div class="d-flex gap-5">
                     <h5><i class="fa-solid fa-location-dot" style="color: #FFD43B;"></i> {{ jobs.location }}</h5>
                     <h5><i class="fa-solid fa-money-bill" style="color: #63E6BE;"></i>   {{ jobs.salary }}</h5>
-                    <h5><i class="fa-regular fa-clock"></i>   {{ jobs.created_on }}</h5>
+                    <h5><i class="fa-regular fa-clock"></i>   {{ jobs.created_on | timesince}}</h5>
                     <button class="btn btn-danger" style="border-radius:15px;pb-3"><strong> {{ jobs.Job_type }}</strong></button><br>
                 </div>
                     <hr>  
