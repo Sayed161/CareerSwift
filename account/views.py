@@ -13,6 +13,7 @@ from django.template.loader import render_to_string
 from django.contrib.auth.models import User
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib import messages
+from job_seeker.models import Job_seeker
 # Create your views here. 
 
 class Registrationview(FormView):
@@ -56,7 +57,7 @@ class Logout(LoginRequiredMixin,LogoutView):
     def get_success_url(self) -> str:
         if self.request.user.is_authenticated:
             logout(self.request)
-        return reverse_lazy('home')
+        return reverse_lazy('login')
     
 
     
@@ -66,7 +67,8 @@ class profile(LoginRequiredMixin,View):
 
     def get(self, request):
         form = ChangeUserForm(instance=request.user)
-        return render(request, self.template_name, {'form': form})
+        jobs, _ = Job_seeker.objects.get_or_create(user=request.user)
+        return render(request, self.template_name, {'form': form, 'jobs':jobs})
 
     def post(self, request):
         form = ChangeUserForm(request.POST, instance=request.user)
@@ -89,6 +91,5 @@ def activate(request,uid64,token):
         user.save()
         messages.success(request,"Account has been activated")
         return redirect('login')
-
     else:
         return redirect('registration')

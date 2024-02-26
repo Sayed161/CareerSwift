@@ -6,6 +6,7 @@ from datetime import datetime
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView
 from jobs.models import Jobs
+from job_seeker.models import Job_seeker
 from category.models import Category
 from contact_us.forms import Contactform
 from jobs.forms import JobSearch
@@ -28,13 +29,19 @@ class HomeView(TemplateView):
     template_name = 'base.html'
     form_class = JobSearch
 
-    def get(self, request,industry=None):
+    def get(self, request, industry=None):
         data = Jobs.objects.all()
         if industry is not None:
             Industry = Category.objects.get(slug=industry)
             data = Jobs.objects.filter(industry=Industry)
         Industry = Category.objects.all()
-        return self.render_to_response({'data': data, 'industry': Industry})
+        
+        # Ensure user is authenticated before accessing request.user
+        if request.user.is_authenticated:
+            jobs, _ = Job_seeker.objects.get_or_create(user=request.user)
+        else:
+            jobs = None
+        return self.render_to_response({'data': data, 'industry': Industry,'jobs': jobs})
     
 
 class Details(DetailView):
