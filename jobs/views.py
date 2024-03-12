@@ -8,6 +8,7 @@ from job_seeker.models import Job_seeker
 from .forms import JobsForm,ApplicationForm
 from .models import Jobs,JobApplication
 from datetime import datetime
+from django.contrib.auth.models import User
 from employee.models import Employee
 from django.core.mail import EmailMessage, EmailMultiAlternatives
 from django.template.loader import render_to_string
@@ -17,6 +18,17 @@ def send_transaction_email(user, subject, template,seeker=None,letter=None):
             'user' : user,
             'letter': letter,
             'seeker': seeker,
+        })
+        send_email = EmailMultiAlternatives(subject, '', to=[user.email])
+  
+        send_email.attach_alternative(message, "text/html")
+        send_email.send()
+
+def send_jobs_notification_email(user, subject, template,job=None):
+        message = render_to_string(template, {
+            'user' : user,
+            'job':job,
+            
         })
         send_email = EmailMultiAlternatives(subject, '', to=[user.email])
   
@@ -36,6 +48,19 @@ class JobsView(LoginRequiredMixin, CreateView):
              return redirect('employee')
 
         form.instance.posted_by = employee
+        subject = 'New Job Posted'
+        template = 'job_post_notification.html' 
+        job = form.instance
+        users = User.objects.all()
+
+        for user in users:
+            if user.email:
+                send_jobs_notification_email(
+                    user=user,  
+                    subject=subject,
+                    template=template,
+                    job=job
+                )
         return super().form_valid(form)
         
     

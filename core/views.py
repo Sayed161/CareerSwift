@@ -36,7 +36,6 @@ class HomeView(TemplateView):
             data = Jobs.objects.filter(industry=Industry)
         Industry = Category.objects.all()
         
-        # Ensure user is authenticated before accessing request.user
         if request.user.is_authenticated:
             jobs, _ = Job_seeker.objects.get_or_create(user=request.user)
         else:
