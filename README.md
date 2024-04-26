@@ -26,7 +26,7 @@ This is a web application designed to serve as a job board platform where both e
 # Getting Started
 1. **Clone this repository:**
    ```bash
-   git clone [ https://github.com/Sayed161/CareerSwift.git ]
+    https://github.com/Sayed161/CareerSwift.git 
 To run this project locally, follow these steps:
 
 - Clone this repository: git clone - 
