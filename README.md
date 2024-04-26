@@ -26,7 +26,7 @@ This is a web application designed to serve as a job board platform where both e
 # Getting Started
 To run this project locally, follow these steps:
 
-Clone this repository: git clone https://github.com/your-username/your-repository.git
+Clone this repository: git clone [(https://github.com/Sayed161/CareerSwift)]
 Navigate to the project directory: cd your-repository
 Install dependencies: npm install
 Start the development server: npm start
