@@ -45,7 +45,7 @@ This is a web application designed to serve as a job board platform where both e
 
 
 ## Technologies Used
-- Frontend: HTML, CSS, JavaScript (with Django templates)
+- Frontend: HTML, CSS
 - Backend: Django
 - Database: Sqlite3 (or other supported databases)
 - Authentication: Django authentication system
