@@ -32,6 +32,25 @@ This is a web application designed to serve as a job board platform where both e
 3. **Install dependencies:**
    ```bash
      pip install -r requirements.txt
+```
+4.**Apply migrations:**
+```bash
+  python manage.py makemigrations
+```
+```bash
+  python manage.py migrate
+```
+5.**Start the development server:**
+```bash
+  python manage.py runserver
+```
+6.**Open your browser and visit http://127.0.0.1:8000/ to view the application.**
 
 
-
+## Technologies Used
+- Frontend: HTML, CSS, JavaScript (with Django templates)
+- Backend: Django
+- Database: Sqlite3 (or other supported databases)
+- Authentication: Django authentication system
+- Email Notifications: Django's built-in email functionality
+- Hosting:Onrender
