@@ -24,11 +24,14 @@ This is a web application designed to serve as a job board platform where both e
   - This project is deployed on Onrender Pages for easy access- https://careerswift.onrender.com/
 
 # Getting Started
+1. **Clone this repository:**
+   ```bash
+   git clone [ https://github.com/Sayed161/CareerSwift.git ]
 To run this project locally, follow these steps:
 
-Clone this repository: git clone [(https://github.com/Sayed161/CareerSwift)]
-Navigate to the project directory: cd your-repository
-Install dependencies: npm install
+- Clone this repository: git clone - 
+- Navigate to the project directory: cd your-repository
+- Install dependencies: npm install
 Start the development server: npm start
 Open your browser and visit http://localhost:3000 to view the application.
 Technologies Used
