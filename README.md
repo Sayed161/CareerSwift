@@ -46,7 +46,7 @@ This is a web application designed to serve as a job board platform where both e
   ```bash
     python manage.py runserver
   ```
-6.**Open your browser and visit http://127.0.0.1:8000/ to view the application.**
+6.**Open your browser and visit `http://127.0.0.1:8000/` to view the application.**
 
 
 ## Technologies Used
