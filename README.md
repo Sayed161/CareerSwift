@@ -23,43 +23,15 @@ This is a web application designed to serve as a job board platform where both e
 - Deployment
   - This project is deployed on Onrender Pages for easy access- https://careerswift.onrender.com/
 
-# Getting Started
+## Getting Started
 1. **Clone this repository:**
    ```bash
     https://github.com/Sayed161/CareerSwift.git 
-To run this project locally, follow these steps:
+**To run this project locally, follow these steps:**
+2. ** Navigate to the project directory: cd your-repository**
+3. **Install dependencies:**
+   ```bash
+     pip install -r requirements.txt
 
-- Clone this repository: git clone - 
-- Navigate to the project directory: cd your-repository
-- Install dependencies: npm install
-Start the development server: npm start
-Open your browser and visit http://localhost:3000 to view the application.
-Technologies Used
-Frontend: React.js
-Backend: Node.js, Express.js
-Database: MongoDB
-Authentication: JSON Web Tokens (JWT)
-Email Notifications: Nodemailer
-Hosting: GitHub Pages
-Folder Structure
-php
-Copy code
-├── public/             # Static assets
-├── src/                # Source files
-│   ├── components/     # React components
-│   ├── pages/          # Page components
-│   ├── services/       # Backend services
-│   ├── utils/          # Utility functions
-│   ├── App.css         # Global styles
-│   └── index.js        # Entry point
-├── .gitignore          # Files to be ignored by Git
-├── package.json        # Project dependencies and scripts
-└── README.md           # Project documentation
-Contributing
-Contributions are welcome! Please feel free to fork this repository and submit pull requests to suggest improvements or add new features.
 
-License
-This project is licensed under the MIT License.
 
-Contact
-For any inquiries or support, please contact Your Name.
