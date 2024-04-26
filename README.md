@@ -35,9 +35,9 @@ This is a web application designed to serve as a job board platform where both e
    ```bash
        pip install -r requirements.txt
 4. **Apply migrations:**
-  ```bash
+    ```bash
     python manage.py makemigrations
-```
+        ```
     python manage.py migrate
 5. **Start the development server:**
     ```bash
