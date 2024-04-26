@@ -29,24 +29,20 @@ This is a web application designed to serve as a job board platform where both e
     https://github.com/Sayed161/CareerSwift.git 
 **To run this project locally, follow these steps:**
 
-**2.Navigate to the project directory: `cd your-repository`**
+2. **Navigate to the project directory: `cd your-repository`**
 
-**3.Install dependencies:**
+3. **Install dependencies:**
    ```bash
        pip install -r requirements.txt
-   ```
-4.**Apply migrations:**
+4. **Apply migrations:**
   ```bash
     python manage.py makemigrations
-  ```
-  ```bash
+```
     python manage.py migrate
-  ```
-5.**Start the development server:**
-  ```bash
+5. **Start the development server:**
+    ```bash
     python manage.py runserver
-  ```
-6.**Open your browser and visit `http://127.0.0.1:8000/` to view the application.**
+6. **Open your browser and visit `http://127.0.0.1:8000/` to view the application.**
 
 
 ## Technologies Used
