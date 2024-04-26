@@ -31,8 +31,8 @@ This is a web application designed to serve as a job board platform where both e
 2. ** Navigate to the project directory: cd your-repository**
 3. **Install dependencies:**
    ```bash
-     pip install -r requirements.txt
-  ```
+       pip install -r requirements.txt
+   ```
 4.**Apply migrations:**
   ```bash
     python manage.py makemigrations
