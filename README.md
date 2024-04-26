@@ -21,9 +21,9 @@ This is a web application designed to serve as a job board platform where both e
 - CRUD Operations:
   - Create, Read, Update, and Delete operations are supported for both job listings and user profiles.
 - Deployment
-  - This project is deployed on GitHub Pages for easy access- https://careerswift.onrender.com/
+  - This project is deployed on Onrender Pages for easy access- https://careerswift.onrender.com/
 
-Getting Started
+# Getting Started
 To run this project locally, follow these steps:
 
 Clone this repository: git clone https://github.com/your-username/your-repository.git
