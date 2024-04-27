@@ -151,7 +151,7 @@ Bootstrap 5 HTML CSS Template
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-location-dot"></i></span>
 
-                                            <input type="text" name="job-location" id="job-location" class="form-control" placeholder="Location" required>
+                                            <input type="text" name="job-location" id="job-location" class="form-control" placeholder="Location">
                                         </div>
                                     </div>
 
@@ -321,37 +321,27 @@ Bootstrap 5 HTML CSS Template
 
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination justify-content-center mt-5">
+                                    {%if data.has_previous %}
                                     <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Previous">
+                                        <a class="page-link" href="?page={{data.previous_page_number}}" aria-label="Previous">
                                             <span aria-hidden="true">Prev</span>
                                         </a>
                                     </li>
+                                    {% endif %}
 
-                                    <li class="page-item active" aria-current="page">
-                                        <a class="page-link" href="#">1</a>
+                                    {% for page_num in  data.paginator.page_range %}
+                                    <li class="page-item {%if data.number == page_num %} active {% endif %}" aria-current="page">
+                                        <a class="page-link" href="?page={{page_num}}">{{page_num}}</a>
                                     </li>
-                                    
+                                    {% endfor %}
+                                   
+                                    {%if data.has_next %}
                                     <li class="page-item">
-                                        <a class="page-link" href="#">2</a>
-                                    </li>
-                                    
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">3</a>
-                                    </li>
-
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">4</a>
-                                    </li>
-
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">5</a>
-                                    </li>
-                                    
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Next">
+                                        <a class="page-link" href="?page={{data.next_page_number}}" aria-label="Next">
                                             <span aria-hidden="true">Next</span>
                                         </a>
                                     </li>
+                                    {% endif %}
                                 </ul>
                             </nav>
                         </div>
@@ -415,7 +405,7 @@ Bootstrap 5 HTML CSS Template
                         <div class="col-lg-6 col-12 mb-4">
                             <h2>Recent Jobs</h2>
 
-                            <p><strong>Over 10k opening jobs</strong> Lorem Ipsum dolor sit amet, consectetur adipsicing kengan omeg kohm tokito adipcingi elit eismuod larehai</p>
+                            <p><strong>Over 10k opening jobs</strong>The only way to do great work is to love what you do.</p>
                         </div>
 
                         <div class="clearfix"></div>
@@ -429,7 +419,7 @@ Bootstrap 5 HTML CSS Template
 
                                     <div class="job-image-box-wrap-info d-flex align-items-center">
                                         <p class="mb-0">
-                                            <a href="job-listings.html" class="badge badge-level">{{post.Job_type}}</a>
+                                            <a href="{% url "details" post.pk %}" class="badge badge-level">{{post.Job_type}}</a>
                                         </p>
 
                                         <p class="mb-0">
@@ -440,7 +430,7 @@ Bootstrap 5 HTML CSS Template
 
                                 <div class="job-body">
                                     <h4 class="job-title">
-                                        <a href="job-details.html" class="job-title-link">{{post.title}}</a>
+                                        <a href="{% url "details" post.pk %}" class="job-title-link">{{post.title}}</a>
                                     </h4>
 
                                     <div class="d-flex align-items-center">
@@ -477,11 +467,6 @@ Bootstrap 5 HTML CSS Template
                             </div>
                         </div>
                         {% endfor %}
-       
-
-                        <div class="col-lg-4 col-12 recent-jobs-bottom d-flex ms-auto my-4">
-                            <a href="job-listings.html" class="custom-btn btn ms-lg-auto">Browse Job Listings</a>
-                        </div>
 
                     </div>
                 </div>
@@ -520,7 +505,7 @@ Bootstrap 5 HTML CSS Template
                                     <div class="reviews-body">
                                         <img src="images/left-quote.png" class="quote-icon img-fluid" alt="">
 
-                                        <h4 class="reviews-title">I found my dream job through this portal! The interface is user-friendly and makes job searching a breeze. Highly recommend!</h4>
+                                        <h4 class="reviews-title">I found my dream job through this portal! I landed my first job out of college within weeks. The interface is user-friendly and makes job searching a breeze. Highly recommend!</h4>
                                     </div>
                                 </div>
 
@@ -628,7 +613,7 @@ Bootstrap 5 HTML CSS Template
                                     <div class="reviews-body">
                                         <img src="images/left-quote.png" class="quote-icon img-fluid" alt="">
 
-                                        <h4 class="reviews-title">As a recent graduate, I wasn't sure where to start my job search. Thankfully, I stumbled upon this portal and it made the process so much easier. I landed my first job out of college within weeks</h4>
+                                        <h4 class="reviews-title">As a recent graduate, I wasn't sure where to start my job search. Thankfully, I stumbled upon this portal and it made the process so much easier.</h4>
                                     </div>
                                 </div>
                             </div>
@@ -734,7 +719,8 @@ Bootstrap 5 HTML CSS Template
                     <div class="col-lg-4 col-md-8 col-12 mt-3 mt-lg-0">
                         <h6 class="site-footer-title">Newsletter</h6>
 
-                        <form class="custom-form newsletter-form" action="#" method="post" role="form">
+                        <form class="custom-form newsletter-form" action="{% url "subsribe" %}" method="post" role="form">
+                            {% csrf_token %}
                             <h6 class="site-footer-title">Get notified jobs news</h6>
 
                             <div class="input-group">
